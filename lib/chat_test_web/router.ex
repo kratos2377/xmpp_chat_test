@@ -7,6 +7,12 @@ defmodule ChatTestWeb.Router do
 
   scope "/api", ChatTestWeb do
     pipe_through :api
+
+    forward "/graphql", Absinthe.Plug , schema: FlickrWeb.Schema
+
+    if Mix.env() == :dev do 
+      forward "/graphiql", Absinthe.Plug.GraphiQL , schema: FlickrWeb.Schema
+    end
   end
 
   # Enables LiveDashboard only for development
