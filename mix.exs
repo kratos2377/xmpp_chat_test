@@ -20,7 +20,7 @@ defmodule ChatTest.MixProject do
   def application do
     [
       mod: {ChatTest.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ejabberd]
     ]
   end
 
@@ -46,8 +46,8 @@ defmodule ChatTest.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:absinthe, "~> 1.7"},
       {:absinthe_plug, "~> 1.5"},    
-      {:pbkdf2_elixir, "~> 2.0"} ,
-      {:ejabberd, "~> 22.5", github: "processone/ejabberd", override: true}
+      {:pbkdf2_elixir, "~> 2.0"},
+      {:ejabberd, github: "processone/ejabberd"}
     ]
   end
 
