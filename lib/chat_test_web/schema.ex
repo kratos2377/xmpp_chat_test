@@ -3,7 +3,7 @@ defmodule ChatTestWeb.Schema do
     alias ChatTestWeb.Resolvers
     #import Types
 
-    import_types(FlickrWeb.Schema.Types)
+    import_types(ChatTestWeb.Schema.Types)
   
 
     ## Reddit Part

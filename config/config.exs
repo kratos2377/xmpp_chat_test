@@ -34,6 +34,13 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+  #ejabberd
+config :ejabberd,
+  file: "config/ejabberd.yml",
+  log_path: 'logs/ejabberd.log'
+# Customize Mnesia directory:
+config :mnesia,
+  dir: 'mnesiadb/'
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 

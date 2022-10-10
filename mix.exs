@@ -5,7 +5,7 @@ defmodule ChatTest.MixProject do
     [
       app: :chat_test,
       version: "0.1.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.13.4",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -45,7 +45,9 @@ defmodule ChatTest.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:absinthe, "~> 1.7"},
-      {:absinthe_plug, "~> 1.5"}
+      {:absinthe_plug, "~> 1.5"},    
+      {:pbkdf2_elixir, "~> 2.0"} ,
+      {:ejabberd, "~> 22.5", github: "processone/ejabberd", override: true}
     ]
   end
 

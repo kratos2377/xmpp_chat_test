@@ -8,10 +8,10 @@ defmodule ChatTestWeb.Router do
   scope "/api", ChatTestWeb do
     pipe_through :api
 
-    forward "/graphql", Absinthe.Plug , schema: FlickrWeb.Schema
+    forward "/graphql", Absinthe.Plug , schema: ChatTestWeb.Schema
 
     if Mix.env() == :dev do 
-      forward "/graphiql", Absinthe.Plug.GraphiQL , schema: FlickrWeb.Schema
+      forward "/graphiql", Absinthe.Plug.GraphiQL , schema: ChatTestWeb.Schema
     end
   end
 

@@ -32,20 +32,13 @@ defmodule ChatTestWeb.Resolvers.UserResolver do
     end
     
     def register_user(_, %{input: input} , _) do
-       case UserQuery.is_email_verified(input) do
-        {:ok , message} -> if message == "email not in use" do
-            {:error, "email not in table"}
-        else
+
             case UserMutation.create_new_user(input) do
                 {:ok , user} -> {:ok , %{id: user.id , first_name: user.first_name , last_name: user.last_name, email: user.email, username: user.username,  token: Token.generate_and_sign!(%{"user_id" => user.id})}}
                 _ -> {:error , "some error occured"}
             end
-        end
-            
-          
-
-           _ -> {:error , "Email not verified"}
-        end
+     
+ 
     end
 
 
