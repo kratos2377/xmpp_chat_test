@@ -27,8 +27,8 @@ defmodule ChatTest.Schemas.User do
 
     def insert_changeset(user , attrs) do
         user 
-        |> cast(attrs , [:first_name, :last_name , :email , :username , :password , :avatar_url, :super_admin])
-        |> validate_required([:first_name, :last_name, :email , :username, :password, :avatar_url, :super_admin])
+        |> cast(attrs , [:first_name, :last_name , :email , :username , :password ])
+        |> validate_required([:first_name, :last_name, :email , :username, :password])
         |> update_change(:email, &String.downcase(&1))
         |> unique_constraint(:email)
         |> unique_constraint(:username)
