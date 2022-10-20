@@ -101,7 +101,7 @@ hosts:
 ## by and what options to start it with.
 ##
 listen:
-  - port: 5222
+  - port: 5224
     module: ejabberd_c2s
     ##
     ## If TLS is compiled in and you installed a SSL
@@ -124,7 +124,7 @@ listen:
     max_stanza_size: 65536
     shaper: c2s_shaper
     access: c2s
-  - port: 5269
+  - port: 5289
     module: ejabberd_s2s_in
   ##
   ## ejabberd_service: Interact with external components (transports, ...)
@@ -155,7 +155,7 @@ listen:
   ## -
   ##   port: 4560
   ##   module: ejabberd_xmlrpc
-  - port: 5280
+  - port: 5290
     module: ejabberd_http
     ## request_handlers:
     ##   "/pub/archive": mod_http_fileserver

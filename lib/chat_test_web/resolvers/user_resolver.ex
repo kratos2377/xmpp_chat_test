@@ -4,13 +4,12 @@ defmodule ChatTestWeb.Resolvers.UserResolver do
   
     alias ChatTest.Schemas.User
 
-
+    alias ChatTest.Mutations.User, as: UserMutation
 
     def allUsers(_,_,_) do
         {:ok , Repo.all(User)}
     end
 
-    #Implement how to send email and verify email
    
 
 
@@ -23,7 +22,7 @@ defmodule ChatTestWeb.Resolvers.UserResolver do
             {:error , "email is invalid"}
         else
             if Pbkdf2.verify_pass(input.password , user.password) do
-                {:ok , %{id: user.id , first_name: user.first_name , last_name: user.last_name, email: user.email, username: user.username,  token: Token.generate_and_sign!(%{"user_id" => user.id})}}
+                {:ok , %{id: user.id , first_name: user.first_name , last_name: user.last_name, email: user.email, username: user.username}}
             else
                 {:error , "password invalid"}
              

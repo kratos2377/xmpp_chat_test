@@ -1,0 +1,318 @@
+2022-10-20 09:47:52.910307+05:30 [info] <0.445.0>@ejabberd_config:load/1:82 Loading configuration from config/ejabberd.yml
+2022-10-20 09:47:52.933553+05:30 [warning] <0.445.0>@ejabberd_config_transformer:transform_module/4:484 Plugin 'hometree' of mod_pubsub is not supported anymore and has been automatically removed from 'plugins' option. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:47:52.933719+05:30 [warning] <0.445.0>@ejabberd_config_transformer:warn_replaced_module/2:528 Module mod_http_bind is deprecated and was automatically replaced by mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:47:52.933812+05:30 [warning] <0.445.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'web_admin' is deprecated and was automatically replaced by HTTP request handler: "/admin" -> ejabberd_web_admin. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:47:52.933919+05:30 [warning] <0.445.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'http_bind' is deprecated and was automatically replaced by HTTP request handler: "/bosh" -> mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:47:52.934005+05:30 [warning] <0.445.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'captcha' is deprecated and was automatically replaced by HTTP request handler: "/captcha" -> ejabberd_captcha. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:47:52.934082+05:30 [warning] <0.445.0>@ejabberd_config_transformer:replace_request_handlers/1:311 Listening option 'http_poll' is ignored: HTTP Polling support was removed in ejabberd 15.04. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:47:52.934182+05:30 [warning] <0.445.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rotate_date' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:47:52.934248+05:30 [warning] <0.445.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rate_limit' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:47:52.934304+05:30 [warning] <0.445.0>@ejabberd_config_transformer:warn_removed_option/2:561 Option 'access' is deprecated and has no effect anymore. Use option 'access_rules' instead.
+2022-10-20 09:47:53.044478+05:30 [warning] <0.445.0>@gen_mod:warn_soft_dep_fail/2:582 Module mod_mam is recommended for module mod_muc but is not found in the config
+2022-10-20 09:47:53.062798+05:30 [info] <0.445.0>@ejabberd_config:load/1:89 Configuration loaded successfully
+2022-10-20 09:47:53.211170+05:30 [info] <0.543.0>@ejabberd_systemd:init/1:103 Got no NOTIFY_SOCKET, notifications disabled
+2022-10-20 09:47:53.219628+05:30 [info] <0.546.0>@translate:load/2:127 Building language translation cache
+2022-10-20 09:47:53.338532+05:30 [info] <0.495.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'ejabberd_commands'
+2022-10-20 09:47:53.357395+05:30 [error] <0.622.0>@ejabberd_listener:report_socket_error/3:481 Failed to open socket at 0.0.0.0:5222 for ejabberd_c2s: address already in use
+2022-10-20 09:47:53.357574+05:30 [error] <0.621.0>@supervisor:start_children/2:392 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_listener}
+    errorContext: start_error
+    reason: eaddrinuse
+    offender: [{pid,undefined},
+               {id,{5222,{0,0,0,0},tcp}},
+               {mfargs,
+                   {ejabberd_listener,start,
+                       [{5222,{0,0,0,0},tcp},
+                        ejabberd_c2s,
+                        #{accept_interval => 0,access => c2s,backlog => 5,
+                          cafile => undefined,ciphers => undefined,
+                          dhfile => undefined,
+                          ip => {0,0,0,0},
+                          max_fsm_queue => 10000,max_stanza_size => 65536,
+                          protocol_options => undefined,send_timeout => 15000,
+                          shaper => c2s_shaper,starttls => false,
+                          starttls_required => false,supervisor => true,
+                          tls => false,tls_compression => false,
+                          tls_verify => false,transport => tcp,
+                          use_proxy_protocol => false,zlib => false}]}},
+               {restart_type,transient},
+               {significant,false},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+
+2022-10-20 09:47:53.357921+05:30 [error] <0.542.0>@supervisor:start_children/2:392 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_sup}
+    errorContext: start_error
+    reason: {shutdown,{failed_to_start_child,{5222,{0,0,0,0},tcp},eaddrinuse}}
+    offender: [{pid,undefined},
+               {id,ejabberd_listener},
+               {mfargs,{ejabberd_listener,start_link,[]}},
+               {restart_type,permanent},
+               {significant,false},
+               {shutdown,infinity},
+               {child_type,supervisor}]
+
+2022-10-20 09:47:53.362847+05:30 [critical] <0.445.0>@ejabberd_app:start/2:68 Failed to start ejabberd application: {error,
+                                       {shutdown,
+                                        {failed_to_start_child,
+                                         ejabberd_listener,
+                                         {shutdown,
+                                          {failed_to_start_child,
+                                           {5222,{0,0,0,0},tcp},
+                                           eaddrinuse}}}}}
+2022-10-20 09:48:28.538245+05:30 [info] <0.692.0>@ejabberd_config:load/1:82 Loading configuration from config/ejabberd.yml
+2022-10-20 09:48:28.557614+05:30 [warning] <0.692.0>@ejabberd_config_transformer:transform_module/4:484 Plugin 'hometree' of mod_pubsub is not supported anymore and has been automatically removed from 'plugins' option. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:48:28.557808+05:30 [warning] <0.692.0>@ejabberd_config_transformer:warn_replaced_module/2:528 Module mod_http_bind is deprecated and was automatically replaced by mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:48:28.557903+05:30 [warning] <0.692.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'web_admin' is deprecated and was automatically replaced by HTTP request handler: "/admin" -> ejabberd_web_admin. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:48:28.558018+05:30 [warning] <0.692.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'http_bind' is deprecated and was automatically replaced by HTTP request handler: "/bosh" -> mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:48:28.558096+05:30 [warning] <0.692.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'captcha' is deprecated and was automatically replaced by HTTP request handler: "/captcha" -> ejabberd_captcha. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:48:28.558186+05:30 [warning] <0.692.0>@ejabberd_config_transformer:replace_request_handlers/1:311 Listening option 'http_poll' is ignored: HTTP Polling support was removed in ejabberd 15.04. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:48:28.558276+05:30 [warning] <0.692.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rotate_date' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:48:28.558325+05:30 [warning] <0.692.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rate_limit' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:48:28.558371+05:30 [warning] <0.692.0>@ejabberd_config_transformer:warn_removed_option/2:561 Option 'access' is deprecated and has no effect anymore. Use option 'access_rules' instead.
+2022-10-20 09:48:28.675777+05:30 [warning] <0.692.0>@gen_mod:warn_soft_dep_fail/2:582 Module mod_mam is recommended for module mod_muc but is not found in the config
+2022-10-20 09:48:28.693318+05:30 [info] <0.692.0>@ejabberd_config:load/1:89 Configuration loaded successfully
+2022-10-20 09:48:28.834119+05:30 [info] <0.786.0>@ejabberd_systemd:init/1:103 Got no NOTIFY_SOCKET, notifications disabled
+2022-10-20 09:48:28.889358+05:30 [error] <0.812.0>@ejabberd_listener:report_socket_error/3:481 Failed to open socket at 0.0.0.0:5222 for ejabberd_c2s: address already in use
+2022-10-20 09:48:28.889534+05:30 [error] <0.811.0>@supervisor:start_children/2:392 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_listener}
+    errorContext: start_error
+    reason: eaddrinuse
+    offender: [{pid,undefined},
+               {id,{5222,{0,0,0,0},tcp}},
+               {mfargs,
+                   {ejabberd_listener,start,
+                       [{5222,{0,0,0,0},tcp},
+                        ejabberd_c2s,
+                        #{accept_interval => 0,access => c2s,backlog => 5,
+                          cafile => undefined,ciphers => undefined,
+                          dhfile => undefined,
+                          ip => {0,0,0,0},
+                          max_fsm_queue => 10000,max_stanza_size => 65536,
+                          protocol_options => undefined,send_timeout => 15000,
+                          shaper => c2s_shaper,starttls => false,
+                          starttls_required => false,supervisor => true,
+                          tls => false,tls_compression => false,
+                          tls_verify => false,transport => tcp,
+                          use_proxy_protocol => false,zlib => false}]}},
+               {restart_type,transient},
+               {significant,false},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+
+2022-10-20 09:48:28.889920+05:30 [error] <0.785.0>@supervisor:start_children/2:392 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_sup}
+    errorContext: start_error
+    reason: {shutdown,{failed_to_start_child,{5222,{0,0,0,0},tcp},eaddrinuse}}
+    offender: [{pid,undefined},
+               {id,ejabberd_listener},
+               {mfargs,{ejabberd_listener,start_link,[]}},
+               {restart_type,permanent},
+               {significant,false},
+               {shutdown,infinity},
+               {child_type,supervisor}]
+
+2022-10-20 09:48:28.895995+05:30 [critical] <0.692.0>@ejabberd_app:start/2:68 Failed to start ejabberd application: {error,
+                                       {shutdown,
+                                        {failed_to_start_child,
+                                         ejabberd_listener,
+                                         {shutdown,
+                                          {failed_to_start_child,
+                                           {5222,{0,0,0,0},tcp},
+                                           eaddrinuse}}}}}
+2022-10-20 09:54:39.007410+05:30 [info] <0.576.0>@ejabberd_config:load/1:82 Loading configuration from config/ejabberd.yml
+2022-10-20 09:54:39.031613+05:30 [warning] <0.576.0>@ejabberd_config_transformer:transform_module/4:484 Plugin 'hometree' of mod_pubsub is not supported anymore and has been automatically removed from 'plugins' option. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:54:39.031759+05:30 [warning] <0.576.0>@ejabberd_config_transformer:warn_replaced_module/2:528 Module mod_http_bind is deprecated and was automatically replaced by mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:54:39.031830+05:30 [warning] <0.576.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'web_admin' is deprecated and was automatically replaced by HTTP request handler: "/admin" -> ejabberd_web_admin. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:54:39.031913+05:30 [warning] <0.576.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'http_bind' is deprecated and was automatically replaced by HTTP request handler: "/bosh" -> mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:54:39.031975+05:30 [warning] <0.576.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'captcha' is deprecated and was automatically replaced by HTTP request handler: "/captcha" -> ejabberd_captcha. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:54:39.032042+05:30 [warning] <0.576.0>@ejabberd_config_transformer:replace_request_handlers/1:311 Listening option 'http_poll' is ignored: HTTP Polling support was removed in ejabberd 15.04. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:54:39.032123+05:30 [warning] <0.576.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rotate_date' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:54:39.032171+05:30 [warning] <0.576.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rate_limit' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:54:39.032215+05:30 [warning] <0.576.0>@ejabberd_config_transformer:warn_removed_option/2:561 Option 'access' is deprecated and has no effect anymore. Use option 'access_rules' instead.
+2022-10-20 09:54:39.144759+05:30 [warning] <0.576.0>@gen_mod:warn_soft_dep_fail/2:582 Module mod_mam is recommended for module mod_muc but is not found in the config
+2022-10-20 09:54:39.163239+05:30 [info] <0.576.0>@ejabberd_config:load/1:89 Configuration loaded successfully
+2022-10-20 09:54:39.307144+05:30 [info] <0.672.0>@ejabberd_systemd:init/1:103 Got no NOTIFY_SOCKET, notifications disabled
+2022-10-20 09:54:39.367670+05:30 [error] <0.699.0>@ejabberd_listener:report_socket_error/3:481 Failed to open socket at 0.0.0.0:5269 for ejabberd_s2s_in: address already in use
+2022-10-20 09:54:39.367864+05:30 [error] <0.697.0>@supervisor:start_children/2:392 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_listener}
+    errorContext: start_error
+    reason: eaddrinuse
+    offender: [{pid,undefined},
+               {id,{5269,{0,0,0,0},tcp}},
+               {mfargs,
+                   {ejabberd_listener,start,
+                       [{5269,{0,0,0,0},tcp},
+                        ejabberd_s2s_in,
+                        #{accept_interval => 0,backlog => 5,
+                          cafile => undefined,ciphers => undefined,
+                          dhfile => undefined,
+                          ip => {0,0,0,0},
+                          max_fsm_queue => 10000,max_stanza_size => infinity,
+                          protocol_options => undefined,send_timeout => 15000,
+                          shaper => none,supervisor => true,tls => false,
+                          tls_compression => false,transport => tcp,
+                          use_proxy_protocol => false}]}},
+               {restart_type,transient},
+               {significant,false},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+
+2022-10-20 09:54:39.368355+05:30 [error] <0.671.0>@supervisor:start_children/2:392 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_sup}
+    errorContext: start_error
+    reason: {shutdown,{failed_to_start_child,{5269,{0,0,0,0},tcp},eaddrinuse}}
+    offender: [{pid,undefined},
+               {id,ejabberd_listener},
+               {mfargs,{ejabberd_listener,start_link,[]}},
+               {restart_type,permanent},
+               {significant,false},
+               {shutdown,infinity},
+               {child_type,supervisor}]
+
+2022-10-20 09:54:39.372192+05:30 [critical] <0.576.0>@ejabberd_app:start/2:68 Failed to start ejabberd application: {error,
+                                       {shutdown,
+                                        {failed_to_start_child,
+                                         ejabberd_listener,
+                                         {shutdown,
+                                          {failed_to_start_child,
+                                           {5269,{0,0,0,0},tcp},
+                                           eaddrinuse}}}}}
+2022-10-20 09:55:04.281247+05:30 [info] <0.418.0>@ejabberd_config:load/1:82 Loading configuration from config/ejabberd.yml
+2022-10-20 09:55:04.303460+05:30 [warning] <0.418.0>@ejabberd_config_transformer:transform_module/4:484 Plugin 'hometree' of mod_pubsub is not supported anymore and has been automatically removed from 'plugins' option. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:04.303676+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_module/2:528 Module mod_http_bind is deprecated and was automatically replaced by mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:04.303811+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'web_admin' is deprecated and was automatically replaced by HTTP request handler: "/admin" -> ejabberd_web_admin. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:04.303979+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'http_bind' is deprecated and was automatically replaced by HTTP request handler: "/bosh" -> mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:04.304092+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'captcha' is deprecated and was automatically replaced by HTTP request handler: "/captcha" -> ejabberd_captcha. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:04.304224+05:30 [warning] <0.418.0>@ejabberd_config_transformer:replace_request_handlers/1:311 Listening option 'http_poll' is ignored: HTTP Polling support was removed in ejabberd 15.04. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:04.304364+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rotate_date' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:55:04.304457+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rate_limit' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:55:04.304534+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_removed_option/2:561 Option 'access' is deprecated and has no effect anymore. Use option 'access_rules' instead.
+2022-10-20 09:55:04.397339+05:30 [warning] <0.418.0>@gen_mod:warn_soft_dep_fail/2:582 Module mod_mam is recommended for module mod_muc but is not found in the config
+2022-10-20 09:55:04.416991+05:30 [info] <0.418.0>@ejabberd_config:load/1:89 Configuration loaded successfully
+2022-10-20 09:55:04.558863+05:30 [info] <0.516.0>@ejabberd_systemd:init/1:103 Got no NOTIFY_SOCKET, notifications disabled
+2022-10-20 09:55:04.612795+05:30 [error] <0.544.0>@ejabberd_listener:report_socket_error/3:481 Failed to open socket at 0.0.0.0:5280 for ejabberd_http: address already in use
+2022-10-20 09:55:04.613019+05:30 [error] <0.541.0>@supervisor:start_children/2:392 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_listener}
+    errorContext: start_error
+    reason: eaddrinuse
+    offender: [{pid,undefined},
+               {id,{5280,{0,0,0,0},tcp}},
+               {mfargs,
+                   {ejabberd_listener,start,
+                       [{5280,{0,0,0,0},tcp},
+                        ejabberd_http,
+                        #{accept_interval => 0,backlog => 5,
+                          cafile => undefined,ciphers => undefined,
+                          custom_headers => [],default_host => undefined,
+                          dhfile => undefined,
+                          ip => {0,0,0,0},
+                          protocol_options => undefined,
+                          request_handlers =>
+                              [{[<<"captcha">>],ejabberd_captcha},
+                               {[<<"bosh">>],mod_bosh},
+                               {[<<"admin">>],ejabberd_web_admin}],
+                          send_timeout => 15000,supervisor => true,
+                          tag => <<>>,tls => false,tls_compression => false,
+                          transport => tcp,use_proxy_protocol => false}]}},
+               {restart_type,transient},
+               {significant,false},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+
+2022-10-20 09:55:04.613477+05:30 [error] <0.515.0>@supervisor:start_children/2:392 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_sup}
+    errorContext: start_error
+    reason: {shutdown,{failed_to_start_child,{5280,{0,0,0,0},tcp},eaddrinuse}}
+    offender: [{pid,undefined},
+               {id,ejabberd_listener},
+               {mfargs,{ejabberd_listener,start_link,[]}},
+               {restart_type,permanent},
+               {significant,false},
+               {shutdown,infinity},
+               {child_type,supervisor}]
+
+2022-10-20 09:55:04.619195+05:30 [critical] <0.418.0>@ejabberd_app:start/2:68 Failed to start ejabberd application: {error,
+                                       {shutdown,
+                                        {failed_to_start_child,
+                                         ejabberd_listener,
+                                         {shutdown,
+                                          {failed_to_start_child,
+                                           {5280,{0,0,0,0},tcp},
+                                           eaddrinuse}}}}}
+2022-10-20 09:55:16.436091+05:30 [info] <0.418.0>@ejabberd_config:load/1:82 Loading configuration from config/ejabberd.yml
+2022-10-20 09:55:16.456442+05:30 [warning] <0.418.0>@ejabberd_config_transformer:transform_module/4:484 Plugin 'hometree' of mod_pubsub is not supported anymore and has been automatically removed from 'plugins' option. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:16.456601+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_module/2:528 Module mod_http_bind is deprecated and was automatically replaced by mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:16.456674+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'web_admin' is deprecated and was automatically replaced by HTTP request handler: "/admin" -> ejabberd_web_admin. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:16.456759+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'http_bind' is deprecated and was automatically replaced by HTTP request handler: "/bosh" -> mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:16.456821+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'captcha' is deprecated and was automatically replaced by HTTP request handler: "/captcha" -> ejabberd_captcha. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:16.456889+05:30 [warning] <0.418.0>@ejabberd_config_transformer:replace_request_handlers/1:311 Listening option 'http_poll' is ignored: HTTP Polling support was removed in ejabberd 15.04. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 09:55:16.456968+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rotate_date' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:55:16.457015+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rate_limit' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 09:55:16.457061+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_removed_option/2:561 Option 'access' is deprecated and has no effect anymore. Use option 'access_rules' instead.
+2022-10-20 09:55:16.549196+05:30 [warning] <0.418.0>@gen_mod:warn_soft_dep_fail/2:582 Module mod_mam is recommended for module mod_muc but is not found in the config
+2022-10-20 09:55:16.571030+05:30 [info] <0.418.0>@ejabberd_config:load/1:89 Configuration loaded successfully
+2022-10-20 09:55:16.707904+05:30 [info] <0.516.0>@ejabberd_systemd:init/1:103 Got no NOTIFY_SOCKET, notifications disabled
+2022-10-20 09:55:16.780843+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'route'
+2022-10-20 09:55:16.787591+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'route_multicast'
+2022-10-20 09:55:16.797410+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'session'
+2022-10-20 09:55:16.801650+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'session_counter'
+2022-10-20 09:55:16.809502+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 's2s'
+2022-10-20 09:55:16.813601+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'temporarily_blocked'
+2022-10-20 09:55:16.822619+05:30 [info] <0.515.0>@gen_mod:start_modules/0:130 Loading modules for localhost
+2022-10-20 09:55:16.822795+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'mod_register_ip'
+2022-10-20 09:55:16.827024+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'sr_group'
+2022-10-20 09:55:16.831398+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'sr_user'
+2022-10-20 09:55:16.855863+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'muc_room'
+2022-10-20 09:55:16.860109+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'muc_registered'
+2022-10-20 09:55:16.864367+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'muc_online_room'
+2022-10-20 09:55:16.870595+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'privacy'
+2022-10-20 09:55:16.889101+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'vcard'
+2022-10-20 09:55:16.893584+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'vcard_search'
+2022-10-20 09:55:16.906089+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'motd'
+2022-10-20 09:55:16.910566+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'motd_users'
+2022-10-20 09:55:16.922715+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'bosh'
+2022-10-20 09:55:16.926635+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'roster'
+2022-10-20 09:55:16.938717+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'roster_version'
+2022-10-20 09:55:16.962037+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'last_activity'
+2022-10-20 09:55:16.974383+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'offline_msg'
+2022-10-20 09:55:17.000565+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'caps_features'
+2022-10-20 09:55:17.005839+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'pubsub_last_item'
+2022-10-20 09:55:17.011607+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'pubsub_index'
+2022-10-20 09:55:17.018538+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'pubsub_node'
+2022-10-20 09:55:17.023995+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'pubsub_state'
+2022-10-20 09:55:17.028395+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'pubsub_item'
+2022-10-20 09:55:17.034034+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'pubsub_orphan'
+2022-10-20 09:55:17.039110+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'private_storage'
+2022-10-20 09:55:17.057304+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'passwd'
+2022-10-20 09:55:17.061595+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia ram table 'reg_users_counter'
+2022-10-20 09:55:17.075806+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc_only table 'oauth_token'
+2022-10-20 09:55:17.080383+05:30 [info] <0.468.0>@ejabberd_mnesia:create/2:270 Creating Mnesia disc table 'oauth_client'
+2022-10-20 09:55:17.107557+05:30 [info] <0.418.0>@ejabberd_cluster_mnesia:wait_for_sync/1:123 Waiting for Mnesia synchronization to complete
+2022-10-20 09:55:17.131762+05:30 [info] <0.418.0>@ejabberd_app:start/2:63 ejabberd 0.0.0 is started in the node nonode@nohost in 0.73s
+2022-10-20 09:55:17.171990+05:30 [info] <0.544.0>@ejabberd_listener:init/4:160 Start accepting TCP connections at 0.0.0.0:5290 for ejabberd_http
+2022-10-20 09:55:17.171981+05:30 [info] <0.542.0>@ejabberd_listener:init/4:160 Start accepting TCP connections at 0.0.0.0:5224 for ejabberd_c2s
+2022-10-20 09:55:17.172157+05:30 [info] <0.543.0>@ejabberd_listener:init/4:160 Start accepting TCP connections at 0.0.0.0:5289 for ejabberd_s2s_in
+2022-10-20 09:55:18.434006+05:30 [info] <0.1004.0>@'Elixir.Phoenix.Endpoint.Cowboy2Adapter':start_link/3:97 Running ChatTestWeb.Endpoint with cowboy 2.9.0 at 127.0.0.1:4000 (http)
+2022-10-20 09:55:18.466578+05:30 [info] <0.981.0>@'Elixir.Phoenix.Endpoint.Supervisor':log_access_url/3:399 Access ChatTestWeb.Endpoint at http://localhost:4000
+2022-10-20 10:05:34.247482+05:30 [info] <0.418.0>@ejabberd_config:load/1:82 Loading configuration from config/ejabberd.yml
+2022-10-20 10:05:34.261401+05:30 [warning] <0.418.0>@ejabberd_config_transformer:transform_module/4:484 Plugin 'hometree' of mod_pubsub is not supported anymore and has been automatically removed from 'plugins' option. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 10:05:34.261516+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_module/2:528 Module mod_http_bind is deprecated and was automatically replaced by mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 10:05:34.261595+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'web_admin' is deprecated and was automatically replaced by HTTP request handler: "/admin" -> ejabberd_web_admin. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 10:05:34.261695+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'http_bind' is deprecated and was automatically replaced by HTTP request handler: "/bosh" -> mod_bosh. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 10:05:34.261759+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'captcha' is deprecated and was automatically replaced by HTTP request handler: "/captcha" -> ejabberd_captcha. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 10:05:34.261819+05:30 [warning] <0.418.0>@ejabberd_config_transformer:replace_request_handlers/1:311 Listening option 'http_poll' is ignored: HTTP Polling support was removed in ejabberd 15.04. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2022-10-20 10:05:34.261886+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rotate_date' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 10:05:34.261930+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rate_limit' is deprecated and has no effect anymore. Please remove it from the configuration.
+2022-10-20 10:05:34.261969+05:30 [warning] <0.418.0>@ejabberd_config_transformer:warn_removed_option/2:561 Option 'access' is deprecated and has no effect anymore. Use option 'access_rules' instead.
+2022-10-20 10:05:34.324881+05:30 [warning] <0.418.0>@gen_mod:warn_soft_dep_fail/2:582 Module mod_mam is recommended for module mod_muc but is not found in the config
+2022-10-20 10:05:34.338186+05:30 [info] <0.418.0>@ejabberd_config:load/1:89 Configuration loaded successfully
+2022-10-20 10:05:34.470173+05:30 [info] <0.642.0>@ejabberd_systemd:init/1:103 Got no NOTIFY_SOCKET, notifications disabled
+2022-10-20 10:05:34.544100+05:30 [info] <0.641.0>@gen_mod:start_modules/0:130 Loading modules for localhost
+2022-10-20 10:05:34.658803+05:30 [info] <0.418.0>@ejabberd_cluster_mnesia:wait_for_sync/1:123 Waiting for Mnesia synchronization to complete
+2022-10-20 10:05:34.677699+05:30 [info] <0.418.0>@ejabberd_app:start/2:63 ejabberd 0.0.0 is started in the node nonode@nohost in 0.46s
+2022-10-20 10:05:34.716723+05:30 [info] <0.670.0>@ejabberd_listener:init/4:160 Start accepting TCP connections at 0.0.0.0:5290 for ejabberd_http
+2022-10-20 10:05:34.716730+05:30 [info] <0.668.0>@ejabberd_listener:init/4:160 Start accepting TCP connections at 0.0.0.0:5224 for ejabberd_c2s
+2022-10-20 10:05:34.716849+05:30 [info] <0.669.0>@ejabberd_listener:init/4:160 Start accepting TCP connections at 0.0.0.0:5289 for ejabberd_s2s_in
+2022-10-20 10:05:35.711567+05:30 [info] <0.957.0>@'Elixir.Phoenix.Endpoint.Cowboy2Adapter':start_link/3:97 Running ChatTestWeb.Endpoint with cowboy 2.9.0 at 127.0.0.1:4000 (http)
+2022-10-20 10:05:35.739387+05:30 [info] <0.934.0>@'Elixir.Phoenix.Endpoint.Supervisor':log_access_url/3:399 Access ChatTestWeb.Endpoint at http://localhost:4000
